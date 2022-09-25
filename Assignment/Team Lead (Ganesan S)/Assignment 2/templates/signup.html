@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>signup page</title>
+{% endblock %}
+
+
+{% block body %}
+
+<h2>SIGNUp Forms</h2>
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" class="form-control"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" class="form-control"><br><br>
+  <input type="submit" value="Submit" class="btn btn-primary">
+</form> 
+
+
+
+{% endblock %}
+
