@@ -1,0 +1,110 @@
+* {
+    top: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(85, 88, 86);
+    font-family: "Lucida Console", "Courier New", monospace;
+    
+}
+.main{
+    margin: 50px 100px 0px 100px;
+}
+
+.boxs{
+    display: flex;
+}
+.box1{
+    width:600px;
+    height:700px;
+    background-color: rgb(246, 240, 255);
+    margin: 100px 20px 0px 30px ;
+    border-radius: 10px;
+    
+}
+.box2{
+    width:100%;
+    max-height:100%;
+    background-color: rgb(252, 240, 255);
+    margin: 100px 20px 0px 30px ;
+    padding: 30px;
+    border-radius: 10px;
+}
+img{
+     width: 300px;
+     margin: 55px;
+}
+.names{
+    margin: 50px;
+}
+span{
+font-size: 20px;
+
+}
+progress{
+    width: 200px;
+    height: 25px;
+    
+}
+#line {
+    border-left: 2px solid rgb(0, 0, 0);
+    height: 200px;
+    position: absolute;
+    margin-top: 335px;
+    margin-left: 300px;
+}
+.bars{
+    display: flex;
+}
+#about{
+    margin-left: 170px;
+    font-size: 20px;
+}
+form{
+    font-size: 25px;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 30px
+}
+#name {
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 350px;
+    margin-right: 50px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+    
+}
+#email {
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 350px;
+
+    
+}
+#subject{
+     
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 350px
+    
+}
+#btn{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 15px 140px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(45, 134, 207);
+    margin: 30px 0px 0px 120px
+}
