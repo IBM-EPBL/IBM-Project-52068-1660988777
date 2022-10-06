@@ -1,0 +1,22 @@
+{% extends 'base.html '%}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+<main class="container mx-auto my-4 bg-light border border-2" style="width: 70%;">
+<div class="p-4">
+   <h1>Welcome to the flask app</h1>
+    <h2>register user list </h2>
+    <div>{% for user in users%}
+
+        <div   style="background: linear-gradient(to top,rgb(51,204,255), 20%, cyan);" class="border rounded fs-4 p-1 px-2 mb-3" style="width: 40%;">
+
+            {{ user["firstname"] + " " +user['lastname'] }}
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+</main>
+{% endblock%}
