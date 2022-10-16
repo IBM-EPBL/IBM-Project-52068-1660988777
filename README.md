@@ -5,19 +5,15 @@
 # IBM-Project-52068-1660988777
 # **Inventory Management System for Retailers**      
   </div> 
-  
-  
-  
+ 
 
-   
-
-
+Domain:  **Cloud Application Development**        
+Team ID : **PNT2022TMID41025**
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <img align="right" alt="Coding" width="300" height="400" src="https://cdn-web.gofrugal.com/images/inventory_ctrl/banner_img.svg">
 
-Domain:  **Cloud Application Development**        
-Team ID : **PNT2022TMID41025**
+
 
 
  ## :bulb:Project Idea :
@@ -52,7 +48,6 @@ businesses.</li>
 
 
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 🏗️Technical Architecture :
 ![Technical architecture diagram](https://lh3.googleusercontent.com/CREVNwiSXyEeHRqKw-PyOLl3407cgeGKXaoHe4XxiA2BKwElixI7EHYyIo65PCZwi7t7vvg_wvZ6V44M_i9K0n7rk4MkKcfoSGN6GKBwTDVBYVIoon8EfgcBwBiKNA)
