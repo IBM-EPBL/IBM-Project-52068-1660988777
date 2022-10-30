@@ -9,7 +9,7 @@ from sib_api_v3_sdk.rest import ApiException
 from pprint import pprint
 
 configuration = sib_api_v3_sdk.Configuration()
-configuration.api_key['api-key'] = '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'
+configuration.api_key['api-key'] = 'x1keysib-ecfa8a7c45244360922d1fa620e4e88c2e1c7b035bf6c1895a467be0383af17f-GDQpT2SBWOFgYLfy0'
 
 app=Flask(__name__)
 app.secret_key ='shreesathyam'
