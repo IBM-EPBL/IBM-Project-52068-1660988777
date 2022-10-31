@@ -1,0 +1,27 @@
+{% extends 'base.html '%}
+{% block head %}
+<title>Sigin page</title>
+{% endblock%}
+
+{%block body%}
+
+<main class="container">
+    <div class="mx-auto mt-5 border bg-light" style="width:500px;">
+    <h2 class='mx-4 mt-2'>LOGIN</h2>
+    <form action="{{url_for('login') }}" method="post">
+        <div  class="mx-4 mt-2 text-danger">{{ msg }}</div>
+        <div class="my-2 mx-4">
+            <label for="username">username</label>
+            <input type="text" class="form-control" placeholder="adc@gmail.com" name="username" required />
+        </div>
+        <div class="my-2 mx-4">
+            <label for="password_1">password</label>
+            <input type="password" class="form-control"  name="password_1" required />
+        </div>
+        <input type="submit" value="submit" class="btn btn-primary my-4 mt-2 mx-4"/>
+
+    </form>
+    <p>Don't have an account?<a href="{{ url_for('accessbackend') }}"> Sign Up</a></div></main></p>
+    
+</main>
+{% endblock%}

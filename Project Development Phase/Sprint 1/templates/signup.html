@@ -1,0 +1,38 @@
+{% extends 'base.html '%}
+{% block head %}
+<title>Signup page</title>
+{% endblock%}
+
+{%block body%}<main class="container">
+    <div class="mx-auto mt-5 border bg-light" style="width: 500px;">
+    <h2 class="mx-4 mt-2">REGISTER FORM</h2>
+    <div class="mx-4 mt-2 text-danger">{{ meg }}</div>
+    <form action="{{url_for('accessbackend') }}" method="post">
+       
+        <div class="my-2 mx-4">
+            <label for="username">User name</label>
+            <input type="text" class="form-control" placeholder="Ram" name="username" required/>
+        </div>
+        <div class="my-2 mx-4">
+            <label for="email">email</label>
+            <input type="text" class="form-control" placeholder="abc@gmail.com" name="email" required/>
+        </div>
+        <div class="my-2 mx-4">
+            <label for="password">password</label>
+            <input type="password" class="form-control" placeholder="password" name="password" required/>
+        </div>
+        <div class="my-2 mx-4">
+            <label for="retype">retype password</label>
+            <input type="password" class="form-control" placeholder="password" name="retype" required/>
+        </div>
+        
+        <input type="submit" value="submit" class="btn btn-primary my-4 my-2 mt-2 mx-4" />
+        <div class="note mt-3 text-center"> <!--Register form -->
+            <p> already have an account ? please <a href="/signin">signin! </a> </p>
+           
+            </div>
+    </form>
+
+    </div>
+</main>
+{% endblock%}
