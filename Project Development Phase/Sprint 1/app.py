@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect, session
 import sqlite3 as sql
 import re
 import ibm_db
-conn =ibm_db.connect("DATABASE=bludb;HOSTNAME=0c77d6f2-5da9-48a9-81f8-86b520b87518.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=31198;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=hgt43191;PWD=pG1XZqjaI1xcDGA8",'','')
+conn =ibm_db.connect("DATABASE=bludb;HOSTNAME=01c77d6f2-5da9-48a9-81f8-86b520b87518.bs2io90l08kqb1od8lcg1.databases.appdomain.cloud;PORT=31198;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=hgt43191;PWD=pG1XZqjaI1xcDGA8",'','')
 
 app=Flask(__name__)
 app.secret_key ='shreesathyam'
