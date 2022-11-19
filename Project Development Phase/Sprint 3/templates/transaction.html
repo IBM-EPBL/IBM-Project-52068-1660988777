@@ -1,0 +1,326 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+            
+          <!-- Begin Page Content -->
+          <div class="container-fluid">            
+              <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h4 class="m-2 font-weight-bold text-primary">Transaction</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable no-footer" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"> 
+                 <thead>
+                     <tr role="row"><th width="19%" class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Transaction Number: activate to sort column descending" style="width: 87.0109px;">Transaction Number</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Customer: activate to sort column ascending" style="width: 75.0109px;">Customer</th><th width="13%" class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="# of Items: activate to sort column ascending" style="width: 42.0109px;"># of Items</th><th width="11%" class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 50px;">Action</th></tr>
+                 </thead>
+            <tbody>
+  
+             
+                                      
+                                  <tr role="row" class="odd"><td class="sorting_1">0318160336</td><td>Dieqcohr Rufino</td><td>3</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=3"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="even"><td class="sorting_1">0318160622</td><td>A Walk in Customer </td><td>2</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=4"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="odd"><td class="sorting_1">0318170309</td><td>Chuchay Jusay</td><td>1</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=5"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="even"><td class="sorting_1">0318170352</td><td>Kimbert Duyag</td><td>1</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=6"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="odd"><td class="sorting_1">0318170511</td><td>Dieqcohr Rufino</td><td>1</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=7"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="even"><td class="sorting_1">0318170524</td><td>Dieqcohr Rufino</td><td>1</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=8"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="odd"><td class="sorting_1">0318170551</td><td>Chuchay Jusay</td><td>1</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=9"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="even"><td class="sorting_1">0318170624</td><td>A Walk in Customer </td><td>1</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=10"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="odd"><td class="sorting_1">0318170825</td><td>Hailee Steinfield</td><td>2</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=11"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr><tr role="row" class="even"><td class="sorting_1">0318194016</td><td>Hailee Steinfield</td><td>1</td><td align="right">
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="trans_view.php?action=edit &amp; id=12"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr></tbody>
+                              </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 10 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item next disabled" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+                          </div>
+                      </div>
+                    </div>
+  
+  
+          </div>
+          <!-- /.container-fluid -->
+  
+        </div>
+        <!-- End of Main Content -->
+  
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Prince's Sales and Inventory System 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+  
+      </div>
+      <!-- End of Content Wrapper -->
+  
+    </div>
+    <!-- End of Page Wrapper -->
+  
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Prince Ly are you sure do you want to logout?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sb-admin-2.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/demo/datatables-demo.js')}}"></script>
+    <script src="{{url_for('static', filename='js/city.js')}}"></script>
+    
+    
+  
+  <!-- PROFILE OVERLAY NA MODAL -->
+  <div id="overlay" onclick="off()">
+    <div id="text">I'm Prince Ly Cesar<br>
+      From Negros Occidental Binalbagan</div>
+  </div>
+  <script>
+  function on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+  
+  //used in pos sa number only na textfields
+  function isNumberKey(evt)
+        {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31 
+          && (charCode < 48 || charCode > 57))
+          return false;
+          return true;
+        }  
+  //end of used in pos sa number only na textfields
+  </script>
+  
+  
+  
+  
+  
+  <!-- Employee select and script -->
+  <script>  
+  window.onload = function() {  
+  
+    // ---------------
+    // basic usage
+    // ---------------
+    var $ = new City();
+    $.showProvinces("#province");
+    $.showCities("#city");
+  
+    // ------------------
+    // additional methods 
+    // -------------------
+  
+    // will return all provinces 
+    console.log($.getProvinces());
+    
+    // will return all cities 
+    console.log($.getAllCities());
+    
+    // will return all cities under specific province (e.g Batangas)
+    console.log($.getCities("Batangas")); 
+    
+  }
+  </script>
+  <!-- end of Employee select and script -->
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Prince Ly are you sure do you want to logout?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Customer Modal-->
+    <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="cust_transac.php?action=add">
+              <div class="form-group">
+                <input class="form-control" placeholder="First Name" name="firstname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Last Name" name="lastname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Phone Number" name="phonenumber" required="">
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Customer Modal-->
+    <div class="modal fade" id="poscustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="cust_pos_trans.php?action=add">
+              <div class="form-group">
+                <input class="form-control" placeholder="First Name" name="firstname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Last Name" name="lastname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Phone Number" name="phonenumber" required="">
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Employee Modal-->
+    <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="emp_transac.php?action=add">          
+                <div class="form-group">
+                  <input class="form-control" placeholder="First Name" name="firstname" required="">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Last Name" name="lastname" required="">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="gender" required="">
+                      <option value="" disabled="" selected="" hidden="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Email" name="email" required="">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Phone Number" name="phonenumber" required="">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" name="jobs" required="">
+          <option value="" disabled="" selected="" hidden="">Select Job</option><option value="1">Manager</option><option value="2">Cashier</option></select>              </div>
+                <div class="form-group">
+                  <input placeholder="Hired Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="FromDate" name="hireddate" class="form-control">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="province" placeholder="Province" name="province" required=""><option selected="" disabled="">Select Province</option><option>Abra</option><option>Agusan del Norte</option><option>Agusan del Sur</option><option>Aklan</option><option>Albay</option><option>Antique</option><option>Apayao</option><option>Aurora</option><option>Basilan</option><option>Bataan</option><option>Batanes</option><option>Batangas</option><option>Benguet</option><option>Biliran</option><option>Bohol</option><option>Bukidnon</option><option>Bulacan</option><option>Cagayan</option><option>Camarines Norte</option><option>Camarines Sur</option><option>Camiguin</option><option>Capiz</option><option>Catanduanes</option><option>Cavite</option><option>Cebu</option><option>Compostela Valley</option><option>Cotabato</option><option>Davao del Norte</option><option>Davao del Sur</option><option>Davao Oriental</option><option>Dinagat Islands</option><option>Eastern Samar</option><option>Guimaras</option><option>Ifugao</option><option>Ilocos Norte</option><option>Ilocos Sur</option><option>Iloilo</option><option>Isabela</option><option>Kalinga</option><option>La Union</option><option>Laguna</option><option>Lanao del Norte</option><option>Lanao del Sur</option><option>Leyte</option><option>Maguindanao</option><option>Marinduque</option><option>Masbate</option><option>Metro Manila</option><option>Misamis Occidental</option><option>Misamis Oriental</option><option>Mountain Province</option><option>Negros Occidental</option><option>Negros Oriental</option><option>Northern Samar</option><option>Nueva Ecija</option><option>Nueva Vizcaya</option><option>Occidental Mindoro</option><option>Oriental Mindoro</option><option>Palawan</option><option>Pampanga</option><option>Pangasinan</option><option>Quezon</option><option>Quirino</option><option>Rizal</option><option>Romblon</option><option>Samar</option><option>Sarangani</option><option>Shariff Kabunsuan</option><option>Siquijor</option><option>Sorsogon</option><option>South Cotabato</option><option>Southern Leyte</option><option>Sultan Kudarat</option><option>Sulu</option><option>Surigao del Norte</option><option>Surigao del Sur</option><option>Tarlac</option><option>Tawi-Tawi</option><option>Zambales</option><option>Zamboanga del Norte</option><option>Zamboanga del Sur</option><option>Zamboanga Sibugay</option></select>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="city" placeholder="City" name="city" required=""><option selected="" disabled="">Select City / Municipality</option></select>
+                </div>
+                <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <!-- Delete Modal-->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="DeleteModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure do you want to delete?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-danger btn-ok">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script>
+          $('#confirm-delete').on('show.bs.modal', function(e) {
+              $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+              
+              $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+          });
+      </script>
+    
+    {% endblock%}</body></html>

@@ -1,0 +1,1164 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- ADMIN TABLE -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h4 class="m-2 font-weight-bold text-primary">
+                  Admin Account(s)
+                </h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <div
+                    id="dataTable_wrapper"
+                    class="dataTables_wrapper dt-bootstrap4 no-footer"
+                  >
+                    <div class="row">
+                      <div class="col-sm-12 col-md-6">
+                        <div class="dataTables_length" id="dataTable_length">
+                          <label
+                            >Show
+                            <select
+                              name="dataTable_length"
+                              aria-controls="dataTable"
+                              class="custom-select custom-select-sm form-control form-control-sm"
+                            >
+                              <option value="10">10</option>
+                              <option value="25">25</option>
+                              <option value="50">50</option>
+                              <option value="100">100</option>
+                            </select>
+                            entries</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-md-6">
+                        <div id="dataTable_filter" class="dataTables_filter">
+                          <label
+                            >Search:<input
+                              type="search"
+                              class="form-control form-control-sm"
+                              placeholder=""
+                              aria-controls="dataTable"
+                          /></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <table
+                          class="table table-bordered dataTable no-footer"
+                          id="dataTable"
+                          width="100%"
+                          cellspacing="0"
+                          role="grid"
+                          aria-describedby="dataTable_info"
+                          style="width: 100%"
+                        >
+                          <thead>
+                            <tr role="row">
+                              <th
+                                class="sorting_asc"
+                                tabindex="0"
+                                aria-controls="dataTable"
+                                rowspan="1"
+                                colspan="1"
+                                aria-sort="ascending"
+                                aria-label="Name: activate to sort column descending"
+                                style="width: 149.672px"
+                              >
+                                Name
+                              </th>
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="dataTable"
+                                rowspan="1"
+                                colspan="1"
+                                aria-label="Username: activate to sort column ascending"
+                                style="width: 126.797px"
+                              >
+                                Username
+                              </th>
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="dataTable"
+                                rowspan="1"
+                                colspan="1"
+                                aria-label="Type: activate to sort column ascending"
+                                style="width: 69.5625px"
+                              >
+                                Type
+                              </th>
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="dataTable"
+                                rowspan="1"
+                                colspan="1"
+                                aria-label="Action: activate to sort column ascending"
+                                style="width: 190.992px"
+                              >
+                                Action
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr role="row" class="odd">
+                              <td class="sorting_1">Prince Ly Cesar</td>
+                              <td>unguardable</td>
+                              <td>Admin</td>
+                              <td align="right">
+                                <div class="btn-group">
+                                  <a
+                                    type="button"
+                                    class="btn btn-primary bg-gradient-primary"
+                                    href="us_searchfrm.php?action=edit &amp; id=1"
+                                    ><i class="fas fa-fw fa-list-alt"></i>
+                                    Details</a
+                                  >
+                                  <div class="btn-group">
+                                    <a
+                                      type="button"
+                                      class="btn btn-primary bg-gradient-primary dropdown no-arrow"
+                                      data-toggle="dropdown"
+                                      style="color: white"
+                                    >
+                                      ... <span class="caret"></span
+                                    ></a>
+                                    <ul
+                                      class="dropdown-menu text-center"
+                                      role="menu"
+                                    >
+                                      <li>
+                                        <a
+                                          type="button"
+                                          class="btn btn-warning bg-gradient-warning btn-block"
+                                          style="border-radius: 0px"
+                                          href="us_edit.php?action=edit &amp; id=1"
+                                        >
+                                          <i class="fas fa-fw fa-edit"></i> Edit
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-md-5">
+                        <div
+                          class="dataTables_info"
+                          id="dataTable_info"
+                          role="status"
+                          aria-live="polite"
+                        >
+                          Showing 1 to 1 of 1 entries
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-md-7">
+                        <div
+                          class="dataTables_paginate paging_simple_numbers"
+                          id="dataTable_paginate"
+                        >
+                          <ul class="pagination">
+                            <li
+                              class="paginate_button page-item previous disabled"
+                              id="dataTable_previous"
+                            >
+                              <a
+                                href="#"
+                                aria-controls="dataTable"
+                                data-dt-idx="0"
+                                tabindex="0"
+                                class="page-link"
+                                >Previous</a
+                              >
+                            </li>
+                            <li class="paginate_button page-item active">
+                              <a
+                                href="#"
+                                aria-controls="dataTable"
+                                data-dt-idx="1"
+                                tabindex="0"
+                                class="page-link"
+                                >1</a
+                              >
+                            </li>
+                            <li
+                              class="paginate_button page-item next disabled"
+                              id="dataTable_next"
+                            >
+                              <a
+                                href="#"
+                                aria-controls="dataTable"
+                                data-dt-idx="2"
+                                tabindex="0"
+                                class="page-link"
+                                >Next</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h4 class="m-2 font-weight-bold text-primary">
+                  User Accounts&nbsp;<a
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#supplierModal"
+                    type="button"
+                    class="btn btn-primary bg-gradient-primary"
+                    style="border-radius: 0px"
+                    ><i class="fas fa-fw fa-plus"></i
+                  ></a>
+                </h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Josuey Mag-asos</td>
+                        <td>test</td>
+                        <td>User</td>
+                        <td align="right">
+                          <div class="btn-group">
+                            <a
+                              type="button"
+                              class="btn btn-primary bg-gradient-primary"
+                              href="us_searchfrm.php?action=edit &amp; id=7"
+                              ><i class="fas fa-fw fa-list-alt"></i> Details</a
+                            >
+                            <div class="btn-group">
+                              <a
+                                type="button"
+                                class="btn btn-primary bg-gradient-primary dropdown no-arrow"
+                                data-toggle="dropdown"
+                                style="color: white"
+                              >
+                                ... <span class="caret"></span
+                              ></a>
+                              <ul class="dropdown-menu text-center" role="menu">
+                                <li>
+                                  <a
+                                    type="button"
+                                    class="btn btn-warning bg-gradient-warning btn-block"
+                                    style="border-radius: 0px"
+                                    href="us_edit.php?action=edit &amp; id=7"
+                                  >
+                                    <i class="fas fa-fw fa-edit"></i> Edit
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Monica Empinado</td>
+                        <td>mncpdrnl</td>
+                        <td>User</td>
+                        <td align="right">
+                          <div class="btn-group">
+                            <a
+                              type="button"
+                              class="btn btn-primary bg-gradient-primary"
+                              href="us_searchfrm.php?action=edit &amp; id=9"
+                              ><i class="fas fa-fw fa-list-alt"></i> Details</a
+                            >
+                            <div class="btn-group">
+                              <a
+                                type="button"
+                                class="btn btn-primary bg-gradient-primary dropdown no-arrow"
+                                data-toggle="dropdown"
+                                style="color: white"
+                              >
+                                ... <span class="caret"></span
+                              ></a>
+                              <ul class="dropdown-menu text-center" role="menu">
+                                <li>
+                                  <a
+                                    type="button"
+                                    class="btn btn-warning bg-gradient-warning btn-block"
+                                    style="border-radius: 0px"
+                                    href="us_edit.php?action=edit &amp; id=9"
+                                  >
+                                    <i class="fas fa-fw fa-edit"></i> Edit
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © Prince's Sales and Inventory System 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Prince Ly are you sure do you want to logout?
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="../js/city.js"></script>
+
+    <!-- PROFILE OVERLAY NA MODAL -->
+    <div id="overlay" onclick="off()">
+      <div id="text">
+        I'm Prince Ly Cesar<br />
+        From Negros Occidental Binalbagan
+      </div>
+    </div>
+    <script>
+      function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+
+      function off() {
+        document.getElementById("overlay").style.display = "none";
+      }
+
+      //used in pos sa number only na textfields
+      function isNumberKey(evt) {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+        return true;
+      }
+      //end of used in pos sa number only na textfields
+    </script>
+
+    <script>
+      window.onload = function () {
+        // ---------------
+        // basic usage
+        // ---------------
+        var $ = new City();
+        $.showProvinces("#province");
+        $.showCities("#city");
+
+        // ------------------
+        // additional methods
+        // -------------------
+
+        // will return all provinces
+        console.log($.getProvinces());
+
+        // will return all cities
+        console.log($.getAllCities());
+
+        // will return all cities under specific province (e.g Batangas)
+        console.log($.getCities("Batangas"));
+      };
+    </script>
+    <!-- end of Employee select and script -->
+
+    <!-- Logout Modal-->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Prince Ly are you sure do you want to logout?
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Customer Modal-->
+    <div
+      class="modal fade"
+      id="customerModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              role="form"
+              method="post"
+              action="cust_transac.php?action=add"
+            >
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="First Name"
+                  name="firstname"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Last Name"
+                  name="lastname"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Phone Number"
+                  name="phonenumber"
+                  required=""
+                />
+              </div>
+              <hr />
+              <button type="submit" class="btn btn-success">
+                <i class="fa fa-check fa-fw"></i>Save
+              </button>
+              <button type="reset" class="btn btn-danger">
+                <i class="fa fa-times fa-fw"></i>Reset
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Customer Modal-->
+    <div
+      class="modal fade"
+      id="poscustomerModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              role="form"
+              method="post"
+              action="cust_pos_trans.php?action=add"
+            >
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="First Name"
+                  name="firstname"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Last Name"
+                  name="lastname"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Phone Number"
+                  name="phonenumber"
+                  required=""
+                />
+              </div>
+              <hr />
+              <button type="submit" class="btn btn-success">
+                <i class="fa fa-check fa-fw"></i>Save
+              </button>
+              <button type="reset" class="btn btn-danger">
+                <i class="fa fa-times fa-fw"></i>Reset
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Employee Modal-->
+    <div
+      class="modal fade"
+      id="employeeModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="emp_transac.php?action=add">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="First Name"
+                  name="firstname"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Last Name"
+                  name="lastname"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="gender" required="">
+                  <option value="" disabled="" selected="" hidden="">
+                    Select Gender
+                  </option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Email"
+                  name="email"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Phone Number"
+                  name="phonenumber"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="jobs" required="">
+                  <option value="" disabled="" selected="" hidden="">
+                    Select Job
+                  </option>
+                  <option value="1">Manager</option>
+                  <option value="2">Cashier</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input
+                  placeholder="Hired Date"
+                  type="text"
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
+                  id="FromDate"
+                  name="hireddate"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <select
+                  class="form-control"
+                  id="province"
+                  placeholder="Province"
+                  name="province"
+                  required=""
+                >
+                  <option selected="" disabled="">Select Province</option>
+                  <option>Abra</option>
+                  <option>Agusan del Norte</option>
+                  <option>Agusan del Sur</option>
+                  <option>Aklan</option>
+                  <option>Albay</option>
+                  <option>Antique</option>
+                  <option>Apayao</option>
+                  <option>Aurora</option>
+                  <option>Basilan</option>
+                  <option>Bataan</option>
+                  <option>Batanes</option>
+                  <option>Batangas</option>
+                  <option>Benguet</option>
+                  <option>Biliran</option>
+                  <option>Bohol</option>
+                  <option>Bukidnon</option>
+                  <option>Bulacan</option>
+                  <option>Cagayan</option>
+                  <option>Camarines Norte</option>
+                  <option>Camarines Sur</option>
+                  <option>Camiguin</option>
+                  <option>Capiz</option>
+                  <option>Catanduanes</option>
+                  <option>Cavite</option>
+                  <option>Cebu</option>
+                  <option>Compostela Valley</option>
+                  <option>Cotabato</option>
+                  <option>Davao del Norte</option>
+                  <option>Davao del Sur</option>
+                  <option>Davao Oriental</option>
+                  <option>Dinagat Islands</option>
+                  <option>Eastern Samar</option>
+                  <option>Guimaras</option>
+                  <option>Ifugao</option>
+                  <option>Ilocos Norte</option>
+                  <option>Ilocos Sur</option>
+                  <option>Iloilo</option>
+                  <option>Isabela</option>
+                  <option>Kalinga</option>
+                  <option>La Union</option>
+                  <option>Laguna</option>
+                  <option>Lanao del Norte</option>
+                  <option>Lanao del Sur</option>
+                  <option>Leyte</option>
+                  <option>Maguindanao</option>
+                  <option>Marinduque</option>
+                  <option>Masbate</option>
+                  <option>Metro Manila</option>
+                  <option>Misamis Occidental</option>
+                  <option>Misamis Oriental</option>
+                  <option>Mountain Province</option>
+                  <option>Negros Occidental</option>
+                  <option>Negros Oriental</option>
+                  <option>Northern Samar</option>
+                  <option>Nueva Ecija</option>
+                  <option>Nueva Vizcaya</option>
+                  <option>Occidental Mindoro</option>
+                  <option>Oriental Mindoro</option>
+                  <option>Palawan</option>
+                  <option>Pampanga</option>
+                  <option>Pangasinan</option>
+                  <option>Quezon</option>
+                  <option>Quirino</option>
+                  <option>Rizal</option>
+                  <option>Romblon</option>
+                  <option>Samar</option>
+                  <option>Sarangani</option>
+                  <option>Shariff Kabunsuan</option>
+                  <option>Siquijor</option>
+                  <option>Sorsogon</option>
+                  <option>South Cotabato</option>
+                  <option>Southern Leyte</option>
+                  <option>Sultan Kudarat</option>
+                  <option>Sulu</option>
+                  <option>Surigao del Norte</option>
+                  <option>Surigao del Sur</option>
+                  <option>Tarlac</option>
+                  <option>Tawi-Tawi</option>
+                  <option>Zambales</option>
+                  <option>Zamboanga del Norte</option>
+                  <option>Zamboanga del Sur</option>
+                  <option>Zamboanga Sibugay</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select
+                  class="form-control"
+                  id="city"
+                  placeholder="City"
+                  name="city"
+                  required=""
+                >
+                  <option selected="" disabled="">
+                    Select City / Municipality
+                  </option>
+                </select>
+              </div>
+              <hr />
+              <button type="submit" class="btn btn-success">
+                <i class="fa fa-check fa-fw"></i>Save
+              </button>
+              <button type="reset" class="btn btn-danger">
+                <i class="fa fa-times fa-fw"></i>Reset
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Modal-->
+    <div
+      class="modal fade"
+      id="confirm-delete"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="DeleteModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure do you want to delete?</div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <a class="btn btn-danger btn-ok">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $("#confirm-delete").on("show.bs.modal", function (e) {
+        $(this).find(".btn-ok").attr("href", $(e.relatedTarget).data("href"));
+
+        $(".debug-url").html(
+          "Delete URL: <strong>" +
+            $(this).find(".btn-ok").attr("href") +
+            "</strong>"
+        );
+      });
+    </script>
+    <!-- User Edit Info Modal-->
+    <div
+      class="modal fade"
+      id="settingsModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit User Info</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="settings_edit.php">
+              <input type="hidden" name="id" value="1" />
+
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">First Name:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="First Name"
+                    name="firstname"
+                    value="Prince Ly"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Last Name:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Last Name"
+                    name="lastname"
+                    value="Cesar"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Gender:</div>
+                <div class="col-sm-9">
+                  <select class="form-control" name="gender" required="">
+                    <option value="" disabled="" selected="" hidden="">
+                      Select Gender
+                    </option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Username:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Username"
+                    name="username"
+                    value="unguardable"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Password:</div>
+                <div class="col-sm-9">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    name="password"
+                    value=""
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Email:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    name="email"
+                    value="princelycesar23@gmail.com"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Contact #:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Contact #"
+                    name="phone"
+                    value="09124033805"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Role:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Role"
+                    name="role"
+                    value="Manager"
+                    readonly=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Hired Date:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Hired Date"
+                    name="hireddate"
+                    value="0000-00-00"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">Province:</div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Province"
+                    name="province"
+                    value="Negros Occidental"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">
+                  City / Municipality:
+                </div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="City / Municipality"
+                    name="city"
+                    value="Binalbagan"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row text-left text-primary">
+                <div class="col-sm-3" style="padding-top: 5px">
+                  Account Type:
+                </div>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    placeholder="Account Type"
+                    name="type"
+                    value="Admin"
+                    readonly=""
+                  />
+                </div>
+              </div>
+              <hr />
+              <button type="submit" class="btn btn-success">
+                <i class="fa fa-check fa-fw"></i>Save
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- User Account Modal-->
+    <div
+      class="modal fade"
+      id="supplierModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add User Account</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="us_transac.php?action=add">
+              <div class="form-group">
+                <select class="form-control" name="empid" required="">
+                  <option value="" disabled="" selected="" hidden="">
+                    Select Employee
+                  </option>
+                  <option value="1">Cesar, Prince Ly - Manager</option>
+                  <option value="4">Empinado, Monica - Manager</option>
+                  <option value="2">Mag-asos, Josuey - Cashier</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Username"
+                  name="username"
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  name="password"
+                  required=""
+                />
+              </div>
+              <hr />
+              <button type="submit" class="btn btn-success">
+                <i class="fa fa-check fa-fw"></i>Save
+              </button>
+              <button type="reset" class="btn btn-danger">
+                <i class="fa fa-times fa-fw"></i>Reset
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>{% endblock %}
+  </body>
+</html>
