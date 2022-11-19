@@ -1,0 +1,63 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+   
+<!-- Begin Page Content -->
+<div class="container-fluid">            
+  <div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h4 class="m-2 font-weight-bold text-primary">Customer&nbsp;
+      <a href="#customerModal" data-toggle="modal" data-target="#customerModal" type="button" class="btn btn-primary bg-gradient-primary" style="border-radius: 0px;"><i class="fas fa-fw fa-plus"></i></a></h4>
+  </div>
+  
+  <div class="card-body">
+    <div class="table-responsive">
+      <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+      
+      <div class="row">
+        <div class="col-sm-12">
+
+        </div>
+      </div>
+    </div>
+    <table class="table table-bordered dataTable no-footer" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">        
+        <thead>
+            <tr role="row">
+              <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending" style="width: 153.961px;">First Name</th>
+              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending" style="width: 99.4219px;">Last Name</th>
+              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Phone Number: activate to sort column ascending" style="width: 136.406px;">Phone Number</th>
+              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 147.234px;">Action</th>
+             </tr>
+        </thead>
+        <tbody> {% for row in cus %} 
+                      
+              <tr role="row" class="even"><td class="sorting_1">{{ row['FIRST_NAME'] }}</td>
+                <td>{{ row['LAST_NAME'] }}</td>
+                <td>{{ row['PHONE_NUMBER'] }}</td>
+                <td align="right"> 
+                  <div class="btn-group">
+                    <a type="button" class="btn btn-primary bg-gradient-primary" href="/customer-detaile/{{row['FIRST_NAME']}}"><i class="fas fa-fw fa-list-alt"></i> Details</a>
+                  <div class="btn-group">
+                    <a type="button" class="btn btn-primary bg-gradient-primary dropdown no-arrow" data-toggle="dropdown" style="color:white;">
+                    ... <span class="caret"></span></a>
+                  <ul class="dropdown-menu text-center" role="menu">
+                      <li>
+                        <a type="button" class="btn btn-warning bg-gradient-warning btn-block" style="border-radius: 0px;" href="/custedit/{{ row['FIRST_NAME']}}">
+                          <i class="fas fa-fw fa-edit"></i> Edit
+                        </a>
+                      </li>
+                  </ul>
+                  </div>
+                </div> </td></tr>
+              {% endfor %}
+              </tbody>
+      </table></div></div><div class="row">
+      
+      </div>
+    </div>
+ 
+    {% endblock %}
+    </div></body></html>

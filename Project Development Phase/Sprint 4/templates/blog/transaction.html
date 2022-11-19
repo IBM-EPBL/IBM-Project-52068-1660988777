@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+            
+          <!-- Begin Page Content -->
+          <div class="container-fluid">            
+              <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h4 class="m-2 font-weight-bold text-primary">Transaction</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable no-footer" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"> 
+                 <thead>
+                     <tr role="row"><th width="50%" class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Transaction Number: activate to sort column descending" style="width: 87.0109px;">Customer</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Customer: activate to sort column ascending" style="width: 50%;">Amount transaction</th></tr>
+                 </thead>
+            <tbody>
+  {% for row in invet0%}
+             
+                                      
+                                  <tr role="row" class="odd">
+                                    <td class="sorting_1">{{row['SUPPLIER_ID'] }}</td>
+                                    <td>
+                                <a type="button" class="btn btn-primary bg-gradient-primary" href="/tranview/{{row['SUPPLIER_ID'] }}"><i class="fas fa-fw fa-th-list"></i> View</a>
+                             </td></tr>
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+{% endfor %}</tbody>
+                              </table></div></div></div>
+                          </div>
+                      
+    {% endblock%}</body></html>

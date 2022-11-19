@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+            
+          <!-- Begin Page Content -->
+          <div class="container-fluid">            
+              <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h4 class="m-2 font-weight-bold text-primary">Inventory for {{ name1 }}</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    
+                    <div class="row"><div class="col-sm-12">
+                      <table class="table table-bordered dataTable no-footer" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"> 
+                 <thead>
+                     <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Product Code: activate to sort column descending" style="width: 58.7578px;">Product Code</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 43.4062px;">Name</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending" style="width: 65.0156px;">Quantity</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="On Hand: activate to sort column ascending" style="width: 40.0781px;">On Hand</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending" style="width: 68.0859px;">Category</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Supplier: activate to sort column ascending" style="width: 64.5234px;">Supplier</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Date Stock In: activate to sort column ascending" style="width: 41.4141px;">Date Stock In</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 48.3984px;">Action</th></tr>
+                 </thead>
+            <tbody>
+              {% for row in prd %}   
+         
+                                      
+                                  <tr role="row" class="odd">
+                                      <td class="sorting_1">{{ row["PRODUCT_CODE"] }}</td>
+                                      <td>{{ row["NAME"] }}</td>
+                                      <td>{{ row["QTY_STOCK"] }}</td>
+                                      <td>{{ row["ON_HAND"] }}</td>
+                                      <td>{{ row["CATEGORY_ID"] }}</td>
+                                      <td>{{ row["SUPPLIER_ID"] }}</td>
+                                      <td>{{ row["DATE_STOCK_IN"] }}</td>
+                                      
+                                    <td align="right">
+                                    
+                        <a type="button" class="btn btn-warning bg-gradient-warning" href="/prodedit/{{ row['NAME'] }}">
+                          <i class="fas fa-fw fa-edit"></i> Edit</a>
+                            </td></tr>
+
+              {% endfor %}
+                            </td></tr></tbody>
+                              </table></div></div>
+                            
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+  
+  
+          </div>
+         {% endblock %}

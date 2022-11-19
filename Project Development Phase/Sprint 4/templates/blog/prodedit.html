@@ -1,0 +1,77 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+<div class="container-fluid">
+    <center><div class="card shadow mb-4 col-xs-12 col-md-8 border-bottom-primary">
+              <div class="card-header py-3">
+                <h4 class="m-2 font-weight-bold text-primary">Edit Product</h4>
+              </div>
+              <a href="/product" type="button" class="btn btn-primary bg-gradient-primary">Back</a>
+              <div class="card-body">
+                {% for row in prd %} 
+              <form role="form" method="post" action="/produp/{{ row['NAME'] }}">
+                <input type="hidden" name="id" value="1">
+                <div class="form-group row text-left text-warning">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Product Code:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Product Code" name="prodcode" value="{{row['PRODUCT_ID']}}" readonly="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-warning">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Product Name:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Product Name" name="name" value="{{ row['NAME'] }}" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-warning">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Description:
+                  </div>
+                  <div class="col-sm-9">
+                     <textarea class="form-control" placeholder="Description" name="description">{{ row['DESCRIPTION'] }}</textarea>
+                  </div>
+                </div>
+                <div class="form-group row text-left text-warning">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Price:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Price" name="price" value="{{ row['PRICE'] }}" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-warning">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Categoty:
+                  </div>
+                  <div class="col-sm-9">
+                     <select class="form-control" name="category" required="">
+          <option value="" disabled="" selected="" hidden="">Select Category</option><option value="CPU">CPU</option><option value="Headset">Headset</option><option value="Keyboard">Keyboard</option><option value="Monitor">Monitor</option><option value="Motherboard">Motherboard</option><option value="Mouse">Mouse</option><option value="Others">Others</option><option value="Power Supply">Power Supply</option><option value="Processor">Processor</option></select>                </div>
+                </div>
+                <div class="form-group row text-left text-warning">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   In hand:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="inhand" name="inhand" value="{{ row['QTY_STOCK'] }}" required="">
+                  </div>
+                </div>
+                
+
+                <hr>
+  
+                  <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-edit fa-fw"></i>Update</button>    
+                </form>  
+                {% endfor %}
+              </div>
+            </div></center>
+  
+  
+          </div>
+          {% endblock %}
