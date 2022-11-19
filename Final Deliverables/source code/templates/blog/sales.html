@@ -1,0 +1,227 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+ <!-- Begin Page Content -->
+ <div class="container-fluid">                <div class="row">
+    <div class="col-lg-12">
+      <div class="card shadow mb-0">
+      <div class="card-header py-2">
+        <h4 class="m-1 text-lg text-primary">Product category</h4>
+      </div>
+            <!-- /.panel-heading -->
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <div class="modal-body">
+                  <form role="form" method="post" action="{{ url_for('addsale')}}">
+                    <div class="form-group">
+                      <select class="form-control" name="name" required="">
+                 <option disabled="" selected="" hidden="">Product name</option>
+                 {% for row in detail %} 
+                 <option  name = "name"value="{{ row["NAME"] }}">{{ row["NAME"]}}</option>
+                 {% endfor %}
+                 <option name = "name" value="Others">Others</option>
+                 
+               
+                 </select>           </div> 
+                   
+                   
+                   <div class="form-group">
+                     <input type="number" min="1" max="999999999" class="form-control" placeholder="Quantity" name="quantity" required="">
+                   </div>
+                   <div class="form-group row text-left mb-3">
+                    <div class="col-sm-12 text-primary btn-group">
+                    
+                    
+                    
+                      <select class="form-control" name="cname" required="">
+                        <option disabled="" selected="" hidden="">Select customer</option>
+                        {% for row in cname %} 
+                        <option name='cname' value="{{ row['FIRST_NAME'] }}">{{ row["FIRST_NAME"]}}</option>
+                        {% endfor %}
+                        <option name='cname' value="Others">Others</option>
+                        
+                      
+                        </select>       <a href="#" data-toggle="modal" data-target="#customerModal" type="button" class="btn btn-primary bg-gradient-primary" style="border-radius: 0px;"><i class="fas fa-fw fa-plus"></i></a>
+                    </div>
+                    
+                    </div>
+                  
+                  <!-- <div class="form-group">
+                    <select class="form-control" name="cname" required="">
+               <option disabled="" selected="" hidden="">Select customer</option>
+               {% for row in cname %} 
+               <option value="{{ row["FIRST_NAME"] }}">{{ row["FIRST_NAME"]}}</option>
+               {% endfor %}
+               <option value="Others">Others</option>
+               
+             
+               </select>           </div> -->
+                   
+                   
+                    <hr>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+                    <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+                  </form>  
+                </div>
+<!-- TAB PANE AREA - ANG UNOD KA TABS ARA SA TABPANE.PHP -->
+
+               
+          </div>
+        </div>
+      </div><!-- END TAB PANE AREA -  -->
+
+<div style="clear:both"></div>  
+<br>  
+<div class="card shadow mb-4 col-md-12">
+<div class="card-header py-3 bg-white">
+<h4 class="m-2 font-weight-bold text-primary">Point of Sale</h4>
+</div>
+
+<div class="row">    
+<div class="card-body col-md-9">
+<div class="table-responsive">
+
+<!-- trial form lang   -->
+<form role="form" method="post" action="pos_transac.php?action=add">
+<input type="hidden" name="employee" value="Prince Ly">
+<input type="hidden" name="role" value="Manager">
+
+<table class="table">    
+<tbody><tr>  
+ <th width="55%">Product Name</th>  
+ <th width="10%">Quantity</th>  
+ <th width="15%">Price</th>  
+ <th width="15%">Total</th>  
+  
+</tr>  
+
+ {% for row in table %}
+ {%  for row2 in row %}
+ <tr> 
+<td><input type="hidden" name="name[]" value="{{ row['NAME']}}">{{ row2['NAME']}}</td>  
+<td><input type="hidden" name="quantity[]" value="{{ row['QTY_STOCK']}}">{{ row2['QTY_STOCK']}}</td>
+<td><input type="hidden" name="price[]" value="{{ row['PRICE']}}">{{ row2['PRICE']}}</td>  
+<td><input type="hidden" name="total" id='total' value="{{ row['QUNATITY']}}">{{ row2['DATE_STOCK_IN'] }}</p>
+  
+<!-- <script>
+  let x = parseInt("{{ row2['QTY_STOCK']}}")*parseInt("{{ row2['PRICE']}}");
+  document.getElementById("gani").innerHTML = x;
+  x=0;
+  </script> -->
+
+</td>  
+
+</tr>{% endfor %}
+{% endfor %}
+                               
+
+
+ 
+
+
+
+
+</tbody></table> 
+</form></div>
+</div> 
+
+<!-- SIDE PART NA SUMMARY -->
+<div class="card-body col-md-3">
+
+
+
+
+
+<input type="hidden" name="date" value="2022-11-17 08:36 am">
+
+<div class="form-group row mb-2">
+
+<div class="col-sm-5 text-left text-primary py-2">
+  <h6>
+    Subtotal
+  </h6>
+</div>
+<div class="col-sm-7">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text">₱</span>
+    </div>
+    
+    
+    
+    
+
+    <input type="text" class="form-control text-right " value='{{ c }}' readonly=""  name="subtotal">
+    
+    
+  </div>
+</div>
+
+</div>
+
+
+
+<div class="form-group row text-left mb-2">
+
+<div class="col-sm-5 text-primary">
+  <h6 class="font-weight-bold py-2">
+    Total
+  </h6>
+</div>
+
+<div class="col-sm-7">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text">₱</span>
+    </div>
+    <input type="text" class="form-control text-right " value="{{ c }}" readonly="" name="total">
+  </div>
+</div>
+
+</div>
+
+<button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#posMODAL"><a href="/salesup"> SUBMIT</a></button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %} 

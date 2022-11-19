@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>Sales and Inventory System</title>
+    <style type="text/css">
+        #overlay {
+          position: fixed;
+          display: none;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0,0,0,0.5);
+          z-index: 2;
+          cursor: pointer;
+        }
+        #text{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          font-size: 50px;
+          color: white;
+          transform: translate(-50%,-50%);
+          -ms-transform: translate(-50%,-50%);
+        }
+        </style>
+    <link rel="icon" href="https://www.freeiconspng.com/uploads/sales-icon-7.png">
+  
+    <!-- Custom fonts for this template-->
+    <link href="{{ url_for('static' , filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static' , filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+   
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  
+    <!-- Custom styles for this template-->
+    <link href="{{ url_for('static', filename='css/sb-admin-2.min.css')}}" rel="stylesheet">
+    
+  
+    <!-- Custom styles for this page -->
+    <link href="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+  </head>
+    {% block head%}{% endblock %}
+
+  
+    
+   
+     <!-- Core plugin JavaScript-->
+
+     
+    <body id="page-top">
+            
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+      
+          <!-- Sidebar -->
+          <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
+              <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fa-solid fa-face-woozy"></i>
+              </div>
+              <div class="sidebar-brand-text mx-3">Inventory Management System</div>
+            </a>
+      
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+      
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+              <a class="nav-link" href="/home">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Home</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+      
+            <!-- Heading -->
+            <div class="sidebar-heading">
+              Tables
+            </div>
+            <!-- Tables Buttons -->
+            <li class="nav-item">
+              <a class="nav-link" href="/customer">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Customer</span></a>
+            </li>
+      
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/product">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Product</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/inventory">
+                <i class="fas fa-fw fa-archive"></i>
+                <span>Inventory</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/transaction">
+                <i class="fas fa-fw fa-retweet"></i>
+                <span>Transaction</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/supplier">
+                <i class="fas fa-fw fa-cogs"></i>
+                <span>Supplier</span></a>
+            </li>
+            
+          
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            
+      
+          </ul>
+          <!-- End of Sidebar -->
+          
+          <!-- Content Wrapper -->
+          <div id="content-wrapper" class="d-flex flex-column">
+      
+            <!-- Main Content -->
+            <div id="content">
+      
+              <!-- Topbar -->
+              <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+      
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                  <i class="fa fa-bars"></i>
+              </button>
+
+
+      
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+      
+                  <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link" href="/sales" role="button">
+                      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Point Of Sales</span>
+                    </a>
+                  </li>
+      
+                  <div class="topbar-divider d-none d-sm-block"></div>
+      
+                  <!-- Nav Item - User Information -->
+                  <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                      <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS0rikanm-OEchWDtCAWQ_s1hQq1nOlQUeJr242AdtgqcdEgm0Dg">
+      
+                    </a>
+      
+                    
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                     
+                     <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                      </a>
+                    </div>
+                  </li>
+      
+                </ul>
+      
+              </nav>
+              <script src="{{url_for('static', filename='js/sample.js')}}"></script>
+<p id="demo"></p>
+{% block body %} 
+{% endblock %}
+
+  
+</div>
+</div>
+
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+<div class="container my-auto">
+<div class="copyright text-center my-auto">
+    <span>Copyright ©</span>
+</div>
+</div>
+</footer>
+<!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+  
+    </div>
+    <!-- End of Page Wrapper -->
+  
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">are you sure do you want to logout?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sb-admin-2.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/demo/datatables-demo.js')}}"></script>
+    <script src="{{url_for('static', filename='js/city.js')}}"></script>
+    
+    
+  
+  <!-- PROFILE OVERLAY NA MODAL -->
+  <div id="overlay" onclick="off()">
+    <div id="text">I'm ganesh<br>
+      </div>
+  </div>
+  <script>
+  function on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+  
+  //used in pos sa number only na textfields
+  function isNumberKey(evt)
+        {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31 
+          && (charCode < 48 || charCode > 57))
+          return false;
+          return true;
+        }  
+  //end of used in pos sa number only na textfields
+  </script>
+  
+  
+  
+  
+  
+  
+  <script>  
+  window.onload = function() {  
+  
+    // ---------------
+    // basic usage
+    // ---------------
+    var $ = new City();
+    $.showProvinces("#province");
+    $.showCities("#city");
+  
+    // ------------------
+    // additional methods 
+    // -------------------
+  
+    // will return all provinces 
+    console.log($.getProvinces());
+    
+    // will return all cities 
+    console.log($.getAllCities());
+    
+    // will return all cities under specific province (e.g Batangas)
+    console.log($.getCities("Batangas")); 
+    
+  }
+  </script>
+  <!-- end of Employee select and script -->
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">are you sure do you want to logout?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+    <!-- Customer Modal-->
+    <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="{{url_for('addcustomer')}}">
+              <div class="form-group">
+                <input class="form-control" placeholder="First Name" name="firstname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Last Name" name="lastname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Phone Number" name="phonenumber" required="">
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+    <!-- Delete Modal-->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="DeleteModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure do you want to delete?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-danger btn-ok">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script>
+          $('#confirm-delete').on('show.bs.modal', function(e) {
+              $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+              
+              $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+          });
+      </script>
+<!-- User Edit Info Modal-->
+<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Edit User Info</h5>
+    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form role="form" method="post" action="settings_edit.php">
+        <input type="hidden" name="id" value="1">
+  
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           First Name:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="First Name" name="firstname" value="Prince Ly" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Last Name:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="Last Name" name="lastname" value="Cesar" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Gender:
+          </div>
+          <div class="col-sm-9">
+            <select class="form-control" name="gender" required="">
+              <option value="" disabled="" selected="" hidden="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Username:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="Username" name="username" value="unguardable" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Password:
+          </div>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" placeholder="Password" name="password" value="" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Email:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="Email" name="email" value="princelycesar23@gmail.com" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Contact #:
+          </div>
+          <div class="col-sm-9">
+             <input class="form-control" placeholder="Contact #" name="phone" value="09124033805" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Role:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="Role" name="role" value="Manager" readonly="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Hired Date:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="Hired Date" name="hireddate" value="0000-00-00" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           Province:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="Province" name="province" value="Negros Occidental" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+           City / Municipality:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="City / Municipality" name="city" value="Binalbagan" required="">
+          </div>
+        </div>
+        <div class="form-group row text-left text-primary">
+          <div class="col-sm-3" style="padding-top: 5px;">
+            Account Type:
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" placeholder="Account Type" name="type" value="Admin" readonly="">
+          </div>
+        </div>
+        <hr>
+      <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+      <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>      
+    </form>  
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Product Modal-->
+  <div class="modal fade" id="aModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form role="form" method="post" action="{{ url_for('addproduct') }}">
+     <div class="form-group">
+       <input class="form-control" placeholder="Product Code" name="prodcode" required="">
+     </div>
+     <div class="form-group">
+       <input class="form-control" placeholder="Name" name="name" required="">
+     </div>
+     <div class="form-group">
+       <textarea rows="5" cols="50" texarea="" class="form-control" placeholder="Description" name="description" required=""></textarea>
+     </div>
+     <div class="form-group">
+       <input type="number" min="1" max="999999999" class="form-control" placeholder="Quantity" name="quantity" required="">
+     </div>
+     <div class="form-group">
+       <input type="number" min="1" max="999999999" class="form-control" placeholder="On Hand" name="onhand" required="">
+     </div>
+     <div class="form-group">
+       <input type="number" min="1" max="9999999999" class="form-control" placeholder="Price" name="price" required="">
+     </div>
+     <div class="form-group">
+       <select class="form-control" name="category" required="">
+  <option disabled="" selected="" hidden="">Select Category</option>
+  {% for row in product2 %} 
+  <option value="{{ row["CATEGORY_ID"] }}">{{ row["CATEGORY_ID"]}}</option>
+  {% endfor %}
+  <option value="Others">Others</option>
+  
+
+  </select>           </div>
+     <div class="form-group">
+       <select class="form-control" name="supplier" required="">
+  <option disabled="" selected="" hidden="">Select Supplier</option><option value="A4tech">A4tech</option><option value="Asus">Asus</option><option value="InGame Tech">InGame Tech</option><option value="Razer Co">Razer Co.</option><option value="Strategic Technology">Strategic Technology Co.</option></select>           </div>
+     <div class="form-group">
+       <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" placeholder="Date Stock In" name="datestock" required="">
+     </div>
+      <hr>
+      <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+      <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+    </form>  
+  </div>
+  </div>
+  </div>
+  </div>
+              
+
+
+
+</body></html>
+
+              
+          
+  
+             

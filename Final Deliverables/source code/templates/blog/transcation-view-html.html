@@ -1,0 +1,49 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+          
+        <!-- Begin Page Content -->
+        <div class="container-fluid">            
+          <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="form-group row text-left mb-0">
+                <div class="col-sm-9">
+                  <h5 class="font-weight-bold">
+                    Sales and Inventory
+                  </h5>
+                </div>
+                
+              </div>
+<hr>
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Products</th>
+                <th width="8%">Qty</th>
+                <th width="20%">Price</th>
+                <th width="20%">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in invet0 %}
+
+<tr><td>{{ row['NAME']}}</td>
+   <td>{{ row['QTY_STOCK']}}</td>
+   <td>{{ row['PRICE']}}</td>
+   <td>{{ row['COST']}}</td>
+</tr> 
+          
+{% endfor %}</tbody>
+         </table>
+           
+            </div>
+          </div>
+
+
+
+        </div>
+        
+  {% endblock%}      </body></html>

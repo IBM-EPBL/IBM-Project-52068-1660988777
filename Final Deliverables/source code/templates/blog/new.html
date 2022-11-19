@@ -1,0 +1,879 @@
+<html lang="en"><head>
+    <style type="text/css">
+  #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+  }
+  #text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+  </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>Sales and Inventory System</title>
+    <link rel="icon" href="https://www.freeiconspng.com/uploads/sales-icon-7.png">
+  
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  
+    <!-- Custom styles for this template-->
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+  
+    <!-- Custom styles for this page -->
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="cart.css">
+  </head>
+  
+  <body id="page-top">
+            
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+  
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+  
+        <!-- Main Content -->
+        <div id="content">
+  
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" style="text-decoration: none; font-size: 18px; font-weight: bold;" href="index.php">
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+          </div>
+          <div class="sidebar-brand-text mx-3">Sales and Inventory System</div>
+        </a>
+  
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+  
+              <li class="nav-item dropdown no-arrow">
+                <a class="nav-link" href="pos.php" role="button">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">POS</span>
+                </a>
+              </li>
+  
+              <div class="topbar-divider d-none d-sm-block"></div>
+  
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Prince Ly Cesar</span>
+                  <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS0rikanm-OEchWDtCAWQ_s1hQq1nOlQUeJr242AdtgqcdEgm0Dg">
+  
+                </a>
+  
+                
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <button class="dropdown-item" onclick="on()">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                  </button>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settingsModal" data-href="settings.php?action=edit &amp; id='1'">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Settings
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+  
+            </ul>
+  
+          </nav>
+          <!-- End of Topbar -->
+            
+          <!-- Begin Page Content -->
+          <div class="container-fluid">                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="card shadow mb-0">
+                    <div class="card-header py-2">
+                      <h4 class="m-1 text-lg text-primary">Product category</h4>
+                    </div>
+                          <!-- /.panel-heading -->
+                          <div class="card-body">
+                              <!-- Nav tabs -->
+                              <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                  <a class="nav-link show active" href="#" data-target="#keyboard" data-toggle="tab">Keyboard</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link show" href="#" data-target="#mouse" data-toggle="tab">Mouse</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link show" href="#headset" data-toggle="tab">Headset</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link show" href="#cpu" data-toggle="tab">CPU</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link show" href="#monitor" data-toggle="tab">Monitor</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#motherboard" data-toggle="tab">Motherboard</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#processor" data-toggle="tab">Processor</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#powersupply" data-toggle="tab">Power Supply</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#others" data-toggle="tab">Others</a>
+                                </li>
+                              </ul>
+  
+  <!-- TAB PANE AREA - ANG UNOD KA TABS ARA SA TABPANE.PHP -->
+  
+                              <!-- Tab panes -->
+                              <div class="tab-content">
+                                <!-- 1ST TAB -->
+                                  <div class="tab-pane fade in mt-2 active show" id="keyboard">
+                                    <div class="row">
+                                                                            <div class="col-sm-4 col-md-2">
+                                        <form method="post" action="pos.php?action=add&amp;id=4">
+                                            <div class="products">
+                                                <h6 class="text-info">Newmen E120</h6>
+                                                <h6>₱ 550</h6>
+                                                <input type="text" name="quantity" class="form-control" value="1">
+                                                <input type="hidden" name="name" value="Newmen E120">
+                                                <input type="hidden" name="price" value="550">
+                                                <input type="submit" name="addpos" style="margin-top:5px;" class="btn btn-info" value="Add">
+                                            </div>
+                                        </form>
+                                    </div>
+                                                                            </div>
+                                  </div>
+                                                                            <!-- 2ND TAB -->
+                                  <div class="tab-pane fade in mt-2" id="mouse">
+                                    <div class="row">
+                                                                            <div class="col-sm-4 col-md-2">
+                                        <form method="post" action="pos.php?action=add&amp;id=27">
+                                            <div class="products">
+                                                <h6 class="text-info">A4tech OP-720</h6>
+                                                <h6>₱ 289</h6>
+                                                <input type="text" name="quantity" class="form-control" value="1">
+                                                <input type="hidden" name="name" value="A4tech OP-720">
+                                                <input type="hidden" name="price" value="289">
+                                                <input type="submit" name="addpos" style="margin-top:5px;" class="btn btn-info" value="Add">
+                                            </div>
+                                        </form>
+                                    </div>
+                                                                            </div>
+                                  </div>
+                                <!-- 3rd TAB -->
+                                  <div class="tab-pane fade in mt-2" id="headset">
+                                    <div class="row">
+                                                                            <div class="col-sm-4 col-md-2">
+                                        <form method="post" action="pos.php?action=add&amp;id=10">
+                                            <div class="products">
+                                                <h6 class="text-info">Fantech EG1</h6>
+                                                <h6>₱ 859</h6>
+                                                <input type="text" name="quantity" class="form-control" value="1">
+                                                <input type="hidden" name="name" value="Fantech EG1">
+                                                <input type="hidden" name="price" value="859">
+                                                <input type="submit" name="addpos" style="margin-top:5px;" class="btn btn-info" value="Add">
+                                            </div>
+                                        </form>
+                                    </div>
+                                                                            </div>
+                                  </div>
+                                <!-- 4th TAB -->
+                                  <div class="tab-pane fade in mt-2" id="cpu">
+                                    <div class="row">
+                                                                            <div class="col-sm-4 col-md-2">
+                                        <form method="post" action="pos.php?action=add&amp;id=1">
+                                            <div class="products">
+                                                <h6 class="text-info">Lenovo ideapad 20059</h6>
+                                                <h6>₱ 32999</h6>
+                                                <input type="text" name="quantity" class="form-control" value="1">
+                                                <input type="hidden" name="name" value="Lenovo ideapad 20059">
+                                                <input type="hidden" name="price" value="32999">
+                                                <input type="submit" name="addpos" style="margin-top:5px;" class="btn btn-info" value="Add">
+                                            </div>
+                                        </form>
+                                    </div>
+                                                                            <div class="col-sm-4 col-md-2">
+                                        <form method="post" action="pos.php?action=add&amp;id=3">
+                                            <div class="products">
+                                                <h6 class="text-info">Predator Helios 300 Gaming Laptop</h6>
+                                                <h6>₱ 77850</h6>
+                                                <input type="text" name="quantity" class="form-control" value="1">
+                                                <input type="hidden" name="name" value="Predator Helios 300 Gaming Laptop">
+                                                <input type="hidden" name="price" value="77850">
+                                                <input type="submit" name="addpos" style="margin-top:5px;" class="btn btn-info" value="Add">
+                                            </div>
+                                        </form>
+                                    </div>
+                                                                            </div>
+                                  </div>
+                                <!-- 5th TAB -->
+                                  <div class="tab-pane fade in mt-2" id="monitor">
+                                    <div class="row">
+                                                                            </div>
+                                  </div>
+                                <!-- 6th TAB -->
+                                  <div class="tab-pane fade in mt-2" id="motherboard">
+                                    <div class="row">
+                                                                            </div>
+                                  </div>
+                                <!-- 7th TAB -->
+                                  <div class="tab-pane fade in mt-2" id="processor">
+                                    <div class="row">
+                                                                            </div>
+                                  </div>
+                                <!-- 8th TAB -->
+                                  <div class="tab-pane fade in mt-2" id="powersupply">
+                                    <div class="row">
+                                                                            </div>
+                                  </div>
+                                <!-- 8th TAB -->
+                                  <div class="tab-pane fade in mt-2" id="others">
+                                    <div class="row">
+                                                                            </div>
+                                  </div>
+  
+  
+  
+  <!-- wala na di nadala sa tab pane, dalom nana di na part -->
+                              </div>
+                          </div>
+                          <!-- /.panel-body -->
+                        </div>
+                      </div>
+                    </div><!-- END TAB PANE AREA - ANG UNOD KA TABS ARA SA TABPANE.PHP -->
+  
+          <div style="clear:both"></div>  
+          <br>  
+          <div class="card shadow mb-4 col-md-12">
+          <div class="card-header py-3 bg-white">
+            <h4 class="m-2 font-weight-bold text-primary">Point of Sale</h4>
+          </div>
+          
+        <div class="row">    
+        <div class="card-body col-md-9">
+          <div class="table-responsive">
+  
+          <!-- trial form lang   -->
+  <form role="form" method="post" action="pos_transac.php?action=add">
+    <input type="hidden" name="employee" value="Prince Ly">
+    <input type="hidden" name="role" value="Manager">
+    
+          <table class="table">    
+          <tbody><tr>  
+               <th width="55%">Product Name</th>  
+               <th width="10%">Quantity</th>  
+               <th width="15%">Price</th>  
+               <th width="15%">Total</th>  
+               <th width="5%">Action</th>  
+          </tr>  
+            
+          <tr>  
+            <td>
+              <input type="hidden" name="name[]" value="Newmen E120">
+              Newmen E120          </td>  
+  
+             <td>
+              <input type="hidden" name="quantity[]" value="2">
+              2          </td>  
+  
+             <td>
+              <input type="hidden" name="price[]" value="550">
+              ₱ 550          </td>  
+  
+             <td>
+              <input type="hidden" name="total" value="1100">
+              ₱ 1,100.00</td>  
+             <td>
+                 <a href="pos.php?action=delete&amp;id=4">
+                      <div class="btn bg-gradient-danger btn-danger"><i class="fas fa-fw fa-trash"></i></div>
+                 </a>
+             </td>  
+          </tr>
+          
+  
+            
+          </tbody></table> 
+           </form></div>
+         </div> 
+  
+  <!-- SIDE PART NA SUMMARY -->
+          <div class="card-body col-md-3">
+            
+            
+  Today's date is : 2022-11-17 07:41 am 
+            <input type="hidden" name="date" value="2022-11-17 07:41 am">
+            <div class="form-group row text-left mb-3">
+              <div class="col-sm-12 text-primary btn-group">
+              <select class="form-control" style="border-radius: 0px;" name="customer" required="">
+          <option value="" disabled="" selected="" hidden="">Select Customer</option><option value="11">A Walk in Customer </option><option value="14">Chuchay Jusay</option><option value="16">Dieqcohr Rufino</option><option value="17">Ganesan S</option><option value="9">Hailee Steinfield</option><option value="15">Kimbert Duyag</option></select>            <a href="#" data-toggle="modal" data-target="#poscustomerModal" type="button" class="btn btn-primary bg-gradient-primary" style="border-radius: 0px;"><i class="fas fa-fw fa-plus"></i></a>
+              </div>
+  
+            </div>
+            <div class="form-group row mb-2">
+  
+              <div class="col-sm-5 text-left text-primary py-2">
+                <h6>
+                  Subtotal
+                </h6>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">₱</span>
+                  </div>
+                  <input type="text" class="form-control text-right " value="1,100.00" readonly="" name="subtotal">
+                </div>
+              </div>
+  
+            </div>
+            <div class="form-group row mb-2">
+  
+              <div class="col-sm-5 text-left text-primary py-2">
+                <h6>
+                  Less VAT
+                </h6>
+              </div>
+  
+              <div class="col-sm-7">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">₱</span>
+                  </div>
+                  <input type="text" class="form-control text-right " value="117.86" readonly="" name="lessvat">
+                </div>
+              </div>
+  
+            </div>
+            <div class="form-group row mb-2">
+  
+              <div class="col-sm-5 text-left text-primary py-2">
+                <h6>
+                  Net of VAT
+                </h6>
+              </div>
+  
+              <div class="col-sm-7">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">₱</span>
+                  </div>
+                  <input type="text" class="form-control text-right " value="982.14" readonly="" name="netvat">
+                </div>
+              </div>
+  
+            </div> 
+            <div class="form-group row mb-2">
+  
+              <div class="col-sm-5 text-left text-primary py-2">
+                <h6>
+                  Add VAT
+                </h6>
+              </div>
+  
+              <div class="col-sm-7">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">₱</span>
+                  </div>
+                  <input type="text" class="form-control text-right " value="117.86" readonly="" name="addvat">
+                </div>
+              </div>
+  
+            </div>
+            <div class="form-group row text-left mb-2">
+  
+              <div class="col-sm-5 text-primary">
+                <h6 class="font-weight-bold py-2">
+                  Total
+                </h6>
+              </div>
+  
+              <div class="col-sm-7">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">₱</span>
+                  </div>
+                  <input type="text" class="form-control text-right " value="1,100.00" readonly="" name="total">
+                </div>
+              </div>
+  
+            </div>
+         
+            <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#posMODAL">SUBMIT</button>
+  
+          <!-- Modal -->
+          <div class="modal fade" id="posMODAL" tabindex="-1" role="dialog" aria-labelledby="POS" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">SUMMARY</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row text-left mb-2">
+  
+                      <div class="col-sm-12 text-center">
+                        <h3 class="py-0">
+                          GRAND TOTAL
+                        </h3>
+                        <h3 class="font-weight-bold py-3 bg-light">
+                          ₱ 1,100.00                      </h3>
+                      </div>
+  
+                    </div>
+  
+                      <div class="col-sm-12 mb-2">
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">₱</span>
+                          </div>
+                            <input class="form-control text-right" id="txtNumber" onkeypress="return isNumberKey(event)" type="text" name="cash" placeholder="ENTER CASH" required="">
+                      </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary btn-block">PROCEED TO PAYMENT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END OF Modal -->
+  
+          
+        </div> <!-- END OF CARD BODY -->
+  
+       </div>
+  
+  
+          </div>
+          <!-- /.container-fluid -->
+  
+        </div>
+        <!-- End of Main Content -->
+  
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Prince's Sales and Inventory System 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+  
+      </div>
+      <!-- End of Content Wrapper -->
+  
+    </div>
+    <!-- End of Page Wrapper -->
+  
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Prince Ly are you sure do you want to logout?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+  
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="../js/city.js"></script> 
+    
+  
+  <!-- PROFILE OVERLAY NA MODAL -->
+  <div id="overlay" onclick="off()">
+    <div id="text">I'm Prince Ly Cesar<br>
+      From Negros Occidental Binalbagan</div>
+  </div>
+  <script>
+  function on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+  
+  //used in pos sa number only na textfields
+  function isNumberKey(evt)
+        {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31 
+          && (charCode < 48 || charCode > 57))
+          return false;
+          return true;
+        }  
+  //end of used in pos sa number only na textfields
+  </script>
+  
+  
+  
+  
+  
+  
+  <script>  
+  window.onload = function() {  
+  
+    // ---------------
+    // basic usage
+    // ---------------
+    var $ = new City();
+    $.showProvinces("#province");
+    $.showCities("#city");
+  
+    // ------------------
+    // additional methods 
+    // -------------------
+  
+    // will return all provinces 
+    console.log($.getProvinces());
+    
+    // will return all cities 
+    console.log($.getAllCities());
+    
+    // will return all cities under specific province (e.g Batangas)
+    console.log($.getCities("Batangas")); 
+    
+  }
+  </script>
+  <!-- end of Employee select and script -->
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Prince Ly are you sure do you want to logout?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Customer Modal-->
+    <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="cust_transac.php?action=add">
+              <div class="form-group">
+                <input class="form-control" placeholder="First Name" name="firstname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Last Name" name="lastname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Phone Number" name="phonenumber" required="">
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Customer Modal-->
+    <div class="modal fade" id="poscustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="cust_pos_trans.php?action=add">
+              <div class="form-group">
+                <input class="form-control" placeholder="First Name" name="firstname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Last Name" name="lastname" required="">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Phone Number" name="phonenumber" required="">
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Employee Modal-->
+    <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="emp_transac.php?action=add">          
+                <div class="form-group">
+                  <input class="form-control" placeholder="First Name" name="firstname" required="">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Last Name" name="lastname" required="">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="gender" required="">
+                      <option value="" disabled="" selected="" hidden="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Email" name="email" required="">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Phone Number" name="phonenumber" required="">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" name="jobs" required="">
+          <option value="" disabled="" selected="" hidden="">Select Job</option><option value="1">Manager</option><option value="2">Cashier</option></select>              </div>
+                <div class="form-group">
+                  <input placeholder="Hired Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="FromDate" name="hireddate" class="form-control">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="province" placeholder="Province" name="province" required=""><option selected="" disabled="">Select Province</option><option>Abra</option><option>Agusan del Norte</option><option>Agusan del Sur</option><option>Aklan</option><option>Albay</option><option>Antique</option><option>Apayao</option><option>Aurora</option><option>Basilan</option><option>Bataan</option><option>Batanes</option><option>Batangas</option><option>Benguet</option><option>Biliran</option><option>Bohol</option><option>Bukidnon</option><option>Bulacan</option><option>Cagayan</option><option>Camarines Norte</option><option>Camarines Sur</option><option>Camiguin</option><option>Capiz</option><option>Catanduanes</option><option>Cavite</option><option>Cebu</option><option>Compostela Valley</option><option>Cotabato</option><option>Davao del Norte</option><option>Davao del Sur</option><option>Davao Oriental</option><option>Dinagat Islands</option><option>Eastern Samar</option><option>Guimaras</option><option>Ifugao</option><option>Ilocos Norte</option><option>Ilocos Sur</option><option>Iloilo</option><option>Isabela</option><option>Kalinga</option><option>La Union</option><option>Laguna</option><option>Lanao del Norte</option><option>Lanao del Sur</option><option>Leyte</option><option>Maguindanao</option><option>Marinduque</option><option>Masbate</option><option>Metro Manila</option><option>Misamis Occidental</option><option>Misamis Oriental</option><option>Mountain Province</option><option>Negros Occidental</option><option>Negros Oriental</option><option>Northern Samar</option><option>Nueva Ecija</option><option>Nueva Vizcaya</option><option>Occidental Mindoro</option><option>Oriental Mindoro</option><option>Palawan</option><option>Pampanga</option><option>Pangasinan</option><option>Quezon</option><option>Quirino</option><option>Rizal</option><option>Romblon</option><option>Samar</option><option>Sarangani</option><option>Shariff Kabunsuan</option><option>Siquijor</option><option>Sorsogon</option><option>South Cotabato</option><option>Southern Leyte</option><option>Sultan Kudarat</option><option>Sulu</option><option>Surigao del Norte</option><option>Surigao del Sur</option><option>Tarlac</option><option>Tawi-Tawi</option><option>Zambales</option><option>Zamboanga del Norte</option><option>Zamboanga del Sur</option><option>Zamboanga Sibugay</option></select>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="city" placeholder="City" name="city" required=""><option selected="" disabled="">Select City / Municipality</option></select>
+                </div>
+                <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button type="reset" class="btn btn-danger"><i class="fa fa-times fa-fw"></i>Reset</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <!-- Delete Modal-->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="DeleteModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure do you want to delete?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-danger btn-ok">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script>
+          $('#confirm-delete').on('show.bs.modal', function(e) {
+              $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+              
+              $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+          });
+      </script>
+    <!-- User Edit Info Modal-->
+    <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit User Info</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="settings_edit.php">
+                <input type="hidden" name="id" value="1">
+  
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   First Name:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="First Name" name="firstname" value="Prince Ly" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Last Name:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Last Name" name="lastname" value="Cesar" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Gender:
+                  </div>
+                  <div class="col-sm-9">
+                    <select class="form-control" name="gender" required="">
+                      <option value="" disabled="" selected="" hidden="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Username:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Username" name="username" value="unguardable" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Password:
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="password" class="form-control" placeholder="Password" name="password" value="" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Email:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Email" name="email" value="princelycesar23@gmail.com" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Contact #:
+                  </div>
+                  <div class="col-sm-9">
+                     <input class="form-control" placeholder="Contact #" name="phone" value="09124033805" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Role:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Role" name="role" value="Manager" readonly="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Hired Date:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Hired Date" name="hireddate" value="0000-00-00" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   Province:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Province" name="province" value="Negros Occidental" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                   City / Municipality:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="City / Municipality" name="city" value="Binalbagan" required="">
+                  </div>
+                </div>
+                <div class="form-group row text-left text-primary">
+                  <div class="col-sm-3" style="padding-top: 5px;">
+                    Account Type:
+                  </div>
+                  <div class="col-sm-9">
+                    <input class="form-control" placeholder="Account Type" name="type" value="Admin" readonly="">
+                  </div>
+                </div>
+                <hr>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check fa-fw"></i>Save</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>      
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div></div></body></html>

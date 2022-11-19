@@ -1,0 +1,62 @@
+{% extends 'blog/base.html' %}
+{% block head %}
+<title>home page</title>
+{% endblock%}
+
+{%block body%}
+
+            
+          <!-- Begin Page Content -->
+         
+          <div class="container-fluid">            
+              <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h4 class="m-2 font-weight-bold text-primary">Product&nbsp;<a href="#" data-toggle="modal" data-target="#aModal" type="button" class="btn btn-primary bg-gradient-primary" style="border-radius: 0px;"><i class="fas fa-fw fa-plus"></i></a></h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <table class="table table-bordered dataTable no-footer" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"> 
+                 <thead>
+                     <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Product Code: activate to sort column descending" style="width: 88.5938px;">Product Code</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 186.352px;">Name</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending" style="width: 36.6797px;">Price</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending" style="width: 68.0859px;">Category</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 113.812px;">Action</th></tr>
+                 </thead>
+            <tbody>
+  
+        
+              {% for row in product1 %}                      
+              <tr role="row" class="odd">
+                <td class="sorting_1">{{ row["PRODUCT_CODE"] }}</td>
+                <td>{{ row["NAME"] }}</td>
+                <td>{{ row["PRICE"]}}</td>
+                <td>{{ row["CATEGORY_ID"]}}</td>
+                <td align="right">
+                  <div class="btn-group">
+                    <a type="button" class="btn btn-primary bg-gradient-primary" href="/productdetail/{{ row['NAME'] }}"; id="20191001">
+                      <i class="fas fa-fw fa-list-alt"></i> Details</a>
+                      <div class="btn-group">
+                        <a type="button" class="btn btn-primary bg-gradient-primary dropdown no-arrow" data-toggle="dropdown" style="color:white;">
+                                ... <span class="caret"></span></a>
+                              <ul class="dropdown-menu text-center" role="menu">
+                                  <li>
+                                    <a type="button" class="btn btn-warning bg-gradient-warning btn-block" style="border-radius: 0px;" href="/prodedit/{{ row['NAME'] }}">
+                                      <i class="fas fa-fw fa-edit"></i> Edit
+                                    </a>
+                                  </li>
+                              </ul>
+                              </div>
+                            </div>
+                          </td>
+                        
+                    </tr>
+                            {% endfor %}
+                          </tbody>
+                              </table></div></div>
+                              
+                            </div>
+                          </div>
+                          </div>
+                          </div></div>
+                          {% endblock%}
