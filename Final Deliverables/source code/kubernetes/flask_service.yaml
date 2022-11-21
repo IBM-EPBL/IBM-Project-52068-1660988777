@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phase-finallist
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: phase-finallist
+  template:
+    metadata:
+      labels:
+        app: phase-finallist
+
+    spec:
+      containers:
+        - name: finaldeliver
+          image: jp.icr.io/finaldeliverable/finaldeliver
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP

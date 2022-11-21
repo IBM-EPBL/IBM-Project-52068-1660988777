@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+    name: ibmimsr
+    labels:
+        app: ibmimsr
+
+spec:
+    selector:
+        matchLabels:
+            app: ibmimsr
+    replicas: 1
+
+    template:
+        metadata:
+            labels:
+                app: ibmimsr
+
+        spec:
+            containers:
+                - name: ibmimsr
+
+                  image: icr.io/ibm_imsr/ibm_imsr
+
+                  imagePullPolicy: Always
+
+                  ports:
+                      - containerPort: 5000
+                  env:
+                      - name: DISABLE_WEB_APP
+                        value: "false"
