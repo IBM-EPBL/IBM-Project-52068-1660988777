@@ -1,8 +1,8 @@
 # :eyes: Please take a look at our Deployed Application :balloon:
 
-🚀 http://159.122.186.241:30543/  🚀
+🚀 http://159.122.186.241:32346/ 🚀
 
-🚀 http://159.122.175.138:30790/  🚀
+
 
 # :star2: Demonstration Video Link :star2:
 
