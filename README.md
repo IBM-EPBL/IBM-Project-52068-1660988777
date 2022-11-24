@@ -1,12 +1,14 @@
-# :eyes: Please take a look at our Deployed Application :balloon:
+## :eyes: Deployed Application :balloon:
 
-🚀 http://159.122.186.241:32346/ 🚀
+#### 🚀 http://159.122.186.241:32346/ 🚀
 
 
 
-# :star2: Demonstration Video Link :star2:
+## :star2: Demonstration Video Link :star2:
 
-Vimeo : 📽️ https://vimeo.com/772997008 📽️
+#### Vimeo : 📽️ https://vimeo.com/772997008 📽️
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 <div align="center">
 <br/>
  <img src="https://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-IBM-Logo-PNG-Transparent.png" alt="Logo" width="400" height="128">
