@@ -1,4 +1,4 @@
-
+# importing the header function
 from turtle import st
 from flask import Flask, render_template, request, redirect, url_for, session
 import ibm_db
@@ -8,7 +8,7 @@ conn =ibm_db.connect("DATABASE=bludb;HOSTNAME=0c77d6f2-5da9-48a9-81f8-86b520b875
 
 app = Flask(__name__)
 app.secret_key ='shreesathyam'
-
+#fuction for select the particular product
 def sub(h,na):
     print(h)
     pd = []
@@ -27,7 +27,8 @@ def sub(h,na):
     v=v-h
     sql = f"UPDATE product SET QTY_STOCK ={v} WHERE name = '{escape(na)}';"
     ibm_db.exec_immediate(conn, sql)
-    
+  
+#fuction for adding sale
 def fetchqs(name):
     pd = []
     
@@ -40,7 +41,7 @@ def fetchqs(name):
         dict = ibm_db.fetch_both(stmt)
     
     return(pd)
-
+# fuction for fetch the qty stock details
 def fetchq(name):
     pd = []
     
@@ -94,7 +95,7 @@ def fetch(name,cname):
     
 
     return(pd)
-
+# fuction for check inventory level
 def invtcheck(name,quantity):
     pd = []
     sql = f"SELECT * FROM product WHERE EXISTS(SELECT * FROM product WHERE NAME='{escape(name)}') "
@@ -114,14 +115,14 @@ def invtcheck(name,quantity):
                 return False
     
     return True
-        
+ # fucntion for set qunatity of product
 def setqt(name,prod3):
   for row in prod3:
     if(name==row['NAME']):
       return row['QUNATITY']
     
   return 0
-
+# select the particular purchase
 def select():
     prod3=[]
     sql1="select * from addsale"
@@ -133,7 +134,7 @@ def select():
         dictionary3 = ibm_db.fetch_both(stmt1)
         
     return fetchinfo(prod3)
-
+# fechting info form fetch fucntion
 def fetchinfo(prod3):
     pd=[]
     total=0
@@ -163,7 +164,7 @@ def fetchinfo(prod3):
         
     
 
- 
+ #sigin page
 @app.route('/')
 def signin():
     return render_template('signin.html')
@@ -171,7 +172,7 @@ def signin():
 
 
 
-
+#login page with user authentication
 @app.route('/login',methods =['GET', 'POST'])
 def login():
     global userid
@@ -200,7 +201,7 @@ def login():
             msg = 'Incorrect username / password !'
     return render_template('signin.html', msg = msg)
 
-        
+    # checking user details
 @app.route('/accessbackend', methods=['POST','GET'])
 def accessbackend():
     mg=''
@@ -242,9 +243,8 @@ def accessbackend():
         msg="fill out the form first!"
     return render_template("signup.html",meg=mg)
 
-
     
-
+# home page
 @app.route("/home")
 def home():
     p=[]
@@ -282,7 +282,7 @@ def home():
     
     return render_template("blog/home.html",p=p,p1=p1,p3=p3,p4=p4)
 
-
+# customer page
 @app.route("/customer")
 def customer():
     prod = []
@@ -303,7 +303,7 @@ def customer():
         return  render_template('blog/customer.html', cus= prod)
     else:
         return  render_template('blog/customer.html')
-
+# cutomer details page
 @app.route("/customer-detaile/<string:name>")
 def custdetail(name):
     pd = []
@@ -323,7 +323,7 @@ def custdetail(name):
         dict=[]
         return  render_template('blog/customer-detaile.html')
 
-
+#product page
 @app.route("/product")
 def product():
     prod = []
@@ -354,7 +354,7 @@ def product():
 
 
 
-
+#product detail page
 
 @app.route("/productdetail/<string:name>")
 def productdetail(name):
@@ -374,7 +374,7 @@ def productdetail(name):
     else:
         dict=[]
         return  render_template('blog/product-detial.html')
-
+#product update page
 @app.route("/produp/<string:name>",methods = ['POST', 'GET'])
 def produp(name):
     if request.method == 'POST':
@@ -393,7 +393,7 @@ def produp(name):
         
     
 
-
+# inventory page
 @app.route("/viewinvet")
 def view():
     return render_template('blog/inventory-view.html')
@@ -404,7 +404,7 @@ def view():
 
 
 
-
+#product edit page
 @app.route("/prodedit/<string:name>")
 def prodedit(name):
     pd=fetch(name)
@@ -413,25 +413,8 @@ def prodedit(name):
         return  render_template('blog/prodedit.html',prd=pd)
     else:
         return  render_template('blog/prodedit.html')
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+# addcustomer page
 @app.route('/addcustomer',methods = ['POST', 'GET'])
 def addcustomer():
     if request.method == 'POST':
@@ -448,6 +431,7 @@ def addcustomer():
     
     return customer()
 
+#add product page
 @app.route('/addproduct',methods = ['POST', 'GET'])
 def addproduct():
     if request.method == 'POST':
@@ -479,7 +463,7 @@ def addproduct():
     return product()
 
 
-
+# check inventory page
 @app.route("/inventory")
 def inventrory():
     invet = []
@@ -527,7 +511,7 @@ def acc():
         return  render_template('blog/account.html')
      
     
-
+# transaction page
 @app.route("/tranview/<string:name>")
 def tranview(name):
     invet = []
@@ -548,7 +532,7 @@ def tranview(name):
 
     
     
-    
+ 
 @app.route("/transaction")
 def transaction():
     invet = []
@@ -571,7 +555,7 @@ def transaction():
 
     
     
-
+#supplier update page
 @app.route("/supplierup/<string:name>",methods = ['POST', 'GET'])
 def supplierup(name):
     if request.method == 'POST':
@@ -652,6 +636,7 @@ def supplydetail(name):
 def account():
     return  render_template('blog/account.html')
 
+#point of sales page
 @app.route("/sales")
 def sales():
     prod2 = []    
@@ -780,3 +765,7 @@ def bill(name):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+    
+    
+    
+    #thanking you
